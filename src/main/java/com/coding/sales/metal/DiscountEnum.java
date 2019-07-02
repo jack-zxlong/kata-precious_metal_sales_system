@@ -4,13 +4,13 @@ public enum DiscountEnum {
 
 	WITHOUTDISCOUNT("1"),DISCOUNTRATEOF95("0.95"), DISCOUNTRATEOF90("0.90");
 
-	private final String name;
+	private final Double value;
 
-	private DiscountEnum(String name) {
-		this.name = name;
+	private DiscountEnum(String value) {
+		this.value = Double.valueOf(value);
 	}
 
-	public String getName() {
-		return name;
+	public Double getValue() {
+		return value;
 	}
 }

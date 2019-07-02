@@ -32,7 +32,7 @@ public class MetalValuationFactoryImpl implements MetalValuationFactory {
 	
 	public boolean isPreferentials(MetalInfo mi) {
 		
-		if(mi.getPreferentials().length>0) {
+		if(mi.getPreferentials().size()>0) {
 			return true;
 		}
 		return false;

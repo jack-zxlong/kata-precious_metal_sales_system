@@ -1,5 +1,7 @@
 package com.coding.sales.metal;
 
+import java.util.List;
+
 public class MetalInfo {
 
 	/*
@@ -10,13 +12,10 @@ public class MetalInfo {
 	private String productNo;
 	private String productUnit;
 	private Double productPrice;
-	private String[] preferentials;
-	private String[] discountRates;
-	/*
-	 * private String preferential; private String discountRate;
-	 */
+	private List<PreferentialActivities> preferentials;
+	private Double[] discountRates;
 	public MetalInfo(String productName, String productNo, String productUnit, Double productPrice,
-			String[] preferentials, String[] discountRates) {
+			List<PreferentialActivities> preferentials, Double[] discountRates) {
 		super();
 		this.productName = productName;
 		this.productNo = productNo;
@@ -37,12 +36,13 @@ public class MetalInfo {
 	public Double getProductPrice() {
 		return productPrice;
 	}
-	public String[] getPreferentials() {
+	public List<PreferentialActivities> getPreferentials() {
 		return preferentials;
 	}
-	public String[] getDiscountRates() {
+	public Double[] getDiscountRates() {
 		return discountRates;
 	}
+	
 
 
 }

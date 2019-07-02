@@ -32,4 +32,19 @@ public class CustomerTest {
 		Customer customer = impl.makeCustomer("张三", "9230009999", 198860);
 		assertEquals("钻石卡", customer.getGrade());
 	}
+	
+	@Test
+	public void testEarnedPoints(){
+		Customer customer = impl.makeCustomer("马丁", "6236609999", 9860);
+		customer.earnedPoints(141);
+		assertEquals(10001, customer.getPoints());
+	}
+
+	@Test
+	public void testUpgrade(){
+		Customer customer = impl.makeCustomer("马丁", "6236609999", 9860);
+		customer.earnedPoints(141);
+		assertEquals(true, customer.getShouldUpgradeStatus());
+	}
+
 }

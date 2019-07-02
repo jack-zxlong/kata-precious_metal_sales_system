@@ -1,21 +1,23 @@
 package com.coding.sales.metal;
 
+import java.math.BigDecimal;
+
 public class PreferentialActivities {
 
-	private Double limitAmount;
-	private Double preferentialAmount;
+	private BigDecimal limitAmount;
+	private BigDecimal preferentialAmount;
 	private String preferentialMode;
 	
-	public PreferentialActivities(Double limitAmount, Double preferentialAmount, String preferentialMode) {
+	public PreferentialActivities(BigDecimal limitAmount, BigDecimal preferentialAmount, String preferentialMode) {
 		super();
 		this.limitAmount = limitAmount;
 		this.preferentialAmount = preferentialAmount;
 		this.preferentialMode = preferentialMode;
 	}
-	public Double getLimitAmount() {
+	public BigDecimal getLimitAmount() {
 		return limitAmount;
 	}
-	public Double getPreferentialAmount() {
+	public BigDecimal getPreferentialAmount() {
 		return preferentialAmount;
 	}
 	public String getPreferentialMode() {

@@ -1,5 +1,8 @@
 package com.coding.sales.metal.impl;
 
+import java.math.BigDecimal;
+
+import com.coding.sales.input.OrderItemCommand;
 import com.coding.sales.metal.MetalInfo;
 import com.coding.sales.metal.inter.MetalValuation;
 
@@ -16,8 +19,8 @@ public class ComprehensiveValuation  extends MetalValuation{
 	}
 
 	@Override
-	public void makeMetalPrice(MetalInfo metalinfo) {
+	public BigDecimal makeMetalPrice(MetalInfo metalinfo,OrderItemCommand orderCommand) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 }

@@ -1,8 +1,11 @@
 package com.coding.sales.metal.inter;
 
+import java.math.BigDecimal;
+
+import com.coding.sales.input.OrderItemCommand;
 import com.coding.sales.metal.MetalInfo;
 
 public abstract class MetalValuation {
-	public abstract void makeMetalPrice(MetalInfo metalinfo);
+	public abstract BigDecimal makeMetalPrice(MetalInfo metalinfo,OrderItemCommand orderCommand);
 
 }

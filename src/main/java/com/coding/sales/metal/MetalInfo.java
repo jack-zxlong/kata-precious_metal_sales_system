@@ -1,5 +1,6 @@
 package com.coding.sales.metal;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class MetalInfo {
@@ -11,10 +12,10 @@ public class MetalInfo {
 	private String productName;
 	private String productNo;
 	private String productUnit;
-	private Double productPrice;
+	private BigDecimal productPrice;
 	private List<PreferentialActivities> preferentials;
 	private Double[] discountRates;
-	public MetalInfo(String productName, String productNo, String productUnit, Double productPrice,
+	public MetalInfo(String productName, String productNo, String productUnit, BigDecimal productPrice,
 			List<PreferentialActivities> preferentials, Double[] discountRates) {
 		super();
 		this.productName = productName;
@@ -33,7 +34,7 @@ public class MetalInfo {
 	public String getProductUnit() {
 		return productUnit;
 	}
-	public Double getProductPrice() {
+	public BigDecimal getProductPrice() {
 		return productPrice;
 	}
 	public List<PreferentialActivities> getPreferentials() {
@@ -43,6 +44,5 @@ public class MetalInfo {
 		return discountRates;
 	}
 	
-
 
 }

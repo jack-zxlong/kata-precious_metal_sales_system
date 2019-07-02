@@ -1,23 +1,20 @@
 package com.coding.sales.customer;
 
-public class OrdinaryCustomer extends Customer implements CustomerRating{
+public class OrdinaryCustomer extends Customer{
 
+	private int upgradePoints;
+	
 	public OrdinaryCustomer(String name, String memberId, int points) {
 		super(name, memberId, points);
 		// TODO Auto-generated constructor stub
+		upgradePoints = 10000;
+		grade = "普卡";
 	}
 
 	@Override
 	public void earnedPoints(int amountMoney) {
 		// TODO Auto-generated method stub
 		points += amountMoney;
-	}
-
-	@Override
-	public void makeSureCustomerShouldUpgrade() {
-		// TODO Auto-generated method stub
-		if(points >= 10000){
-			shouldUpgrade = true;
-		}
+		makeSureCustomerShouldUpgrade(upgradePoints);
 	}
 }

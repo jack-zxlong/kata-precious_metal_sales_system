@@ -58,6 +58,22 @@ public class CustomerTest {
 		assertEquals("金卡", customerUpgrade.getGrade());
 	}
 	
+	@Test
+	public void testCustomerGoldEarnedPoints(){
+		customerGold.earnedPoints(10);
+		assertEquals(48875, customerGold.getPoints());
+	}
 	
+	@Test
+	public void testCustomerPlatinumEarnedPoints(){
+		customerPlatinum.earnedPoints(10);
+		assertEquals(98878, customerPlatinum.getPoints());
+	}
+	
+	@Test
+	public void testCustomerPlatinumEarnedPoints1000(){
+	customerPlatinum.earnedPoints(1000);
+	assertEquals(98860 + 1800, customerPlatinum.getPoints());
+	}
 	
 }

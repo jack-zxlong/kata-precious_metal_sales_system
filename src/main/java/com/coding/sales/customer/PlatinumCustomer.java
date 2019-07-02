@@ -16,6 +16,7 @@ public class PlatinumCustomer extends Customer{
 	public void earnedPoints(BigDecimal amountMoney) {
 		// TODO Auto-generated method stub
 		points = points.add( amountMoney.multiply(new BigDecimal(1.8)) );
+		System.out.println(points.toString());
 		makeSureCustomerShouldUpgrade(upgradePoints);
 	}
 }

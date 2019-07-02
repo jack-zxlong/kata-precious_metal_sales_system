@@ -39,10 +39,10 @@ public class OrderApp {
 //        OrderRepresentation result = null;
 
         CustomerBuyOrderCommand customerBuy = new CustomerBuyOrderCommand(command);
-        customerBuy.buyMetal();
+       // customerBuy.buyMetal();
         //TODO: 请完成需求指定的功能
 
-        return  null;
+        return  customerBuy.buyMetal();
         
     }
 }

@@ -2,7 +2,9 @@ package com.coding.sales;
 
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.coding.sales.customer.Customer;
@@ -12,6 +14,7 @@ import com.coding.sales.input.OrderItemCommand;
 import com.coding.sales.metal.MetalInfo;
 import com.coding.sales.metal.impl.MetalValuationFactoryImpl;
 import com.coding.sales.metal.inter.MetalValuation;
+import com.coding.sales.output.OrderRepresentation;
 
 public class CustomerBuyOrderCommand {
 	private OrderCommand  orderCommand;
@@ -79,17 +82,36 @@ public class CustomerBuyOrderCommand {
 		
 	}
 	
-	public void buyMetal(){
+	public OrderRepresentation buyMetal(){
 		OrderItemCommand orderItem = orderCommand.getItems().get(0);
 	    Customer customer = findCustomer(orderCommand.getMemberId());
 
 	    MetalValuation metalValuation = metalImpl.makeMetalValuation(metalInfoList.get(0));
 	    BigDecimal amount = metalValuation.makeMetalPrice(metalInfoList.get(0), orderItem);
+	    System.out.println("amount---->"+amount);
 	    customer.earnedPoints(amount);
+	    
+	    Customer  newcustomer = null; 
 	    if(customer.getShouldUpgradeStatus()){
-	    	replaseCustomer(impl.upgradeCustomer(customer));
+	    	newcustomer=impl.upgradeCustomer(customer);
+	    	replaseCustomer(newcustomer);
 	    }
 		
+		/*
+		 * return new OrderRepresentation(orderCommand.getOrderId(),
+		 * orderCommand.getCreateTime(), orderCommand.getMemberId(), customer.getName(),
+		 * customer.getGrade(), newcustomer.getGrade(),
+		 * (newcustomer.getPoints().subtract(customer.getPoints())).intValue(),
+		 * newcustomer.getPoints().intValue(), orderCommand.getItems(), amount, null ,
+		 * 0, amount, orderCommand.getPayments(), orderCommand.getDiscounts());
+		 */
+	    SimpleDateFormat sf = new SimpleDateFormat("yyyy-mm-dd");
+	    Date createTime = sf.parse(orderCommand.getCreateTime());
+	    return new OrderRepresentation(orderCommand.getOrderId(), createTime, 
+	    		orderCommand.getMemberId(), 
+	    		customer.getName(), customer.getGrade(), newcustomer.getGrade(),
+	    		(newcustomer.getPoints().subtract(customer.getPoints())).intValue(), newcustomer.getPoints().intValue(), 
+	    		orderCommand.getItems(), amount,  null , 0, amount, orderCommand.getPayments(), orderCommand.getDiscounts());
 	}
 	
 }

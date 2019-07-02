@@ -1,13 +1,15 @@
 package com.coding.sales.customer;
 
+import java.math.BigDecimal;
+
 public class Customer implements CustomerRating{
 	public String name;
 	public String memberId;
-	public int points;
+	public BigDecimal points;
 	public boolean shouldUpgrade;
 	public String grade;
 
-	public Customer(String name, String memberId, int points) {
+	public Customer(String name, String memberId, BigDecimal points) {
 		super();
 		this.name = name;
 		this.memberId = memberId;
@@ -16,7 +18,7 @@ public class Customer implements CustomerRating{
 		this.grade="";
 	}
 
-	public int getPoints() {
+	public BigDecimal getPoints() {
 		return points;
 	}
 	
@@ -37,14 +39,14 @@ public class Customer implements CustomerRating{
 	}
 
 	@Override
-	public void earnedPoints(int amountMoney) {
+	public void earnedPoints(BigDecimal amountMoney) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void makeSureCustomerShouldUpgrade(int upgradePoints) {
 		// TODO Auto-generated method stub
-		if(points >= upgradePoints){
+		if(points.compareTo(new BigDecimal(upgradePoints)) == 1){
 			shouldUpgrade = true;
 		}
 	}

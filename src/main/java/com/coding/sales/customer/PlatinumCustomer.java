@@ -1,9 +1,11 @@
 package com.coding.sales.customer;
 
+import java.math.BigDecimal;
+
 public class PlatinumCustomer extends Customer{
 	private int upgradePoints;
 
-	public PlatinumCustomer(String name, String memberId, int points) {
+	public PlatinumCustomer(String name, String memberId, BigDecimal points) {
 		super(name, memberId, points);
 		// TODO Auto-generated constructor stub
 		upgradePoints = 100000;
@@ -11,10 +13,9 @@ public class PlatinumCustomer extends Customer{
 	}
 
 	@Override
-	public void earnedPoints(int amountMoney) {
+	public void earnedPoints(BigDecimal amountMoney) {
 		// TODO Auto-generated method stub
-		points += amountMoney*1.8;
-		
+		points = points.add( amountMoney.multiply(new BigDecimal(1.8)) );
 		makeSureCustomerShouldUpgrade(upgradePoints);
 	}
 }

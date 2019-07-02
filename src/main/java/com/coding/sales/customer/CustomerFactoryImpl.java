@@ -1,16 +1,18 @@
 package com.coding.sales.customer;
 
+import java.math.BigDecimal;
+
 public class CustomerFactoryImpl implements CustomerFactory{
 	@Override
-	public Customer makeCustomer(String name, String cardNumber, int points) {
+	public Customer makeCustomer(String name, String cardNumber, BigDecimal points) {
 		// TODO Auto-generated method stub
-		if(points < 10000){
+		if(points.compareTo(new BigDecimal(10000)) == -1){
 			return new OrdinaryCustomer(name, cardNumber, points);
 		}
-		else if(points < 50000){
+		else if(points.compareTo(new BigDecimal(50000)) == -1){
 			return new GoldCustomer(name, cardNumber, points);
 		}
-		else if(points < 100000){
+		else if(points.compareTo(new BigDecimal(100000)) == -1){
 			return new PlatinumCustomer(name, cardNumber, points);
 		}
 		else{

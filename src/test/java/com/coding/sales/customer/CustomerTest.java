@@ -9,6 +9,11 @@ public class CustomerTest {
 
 	CustomerFactoryImpl impl = new CustomerFactoryImpl();
 
+	Customer customerOrdinary = impl.makeCustomer("马丁", "6236609999", 9860);
+	Customer customerGold = impl.makeCustomer("王立", "6630009999", 48860);
+	Customer customerPlatinum = impl.makeCustomer("李想", "8230009999", 98860);
+	Customer customerDiamond = impl.makeCustomer("张三", "9230009999", 198860);
+
 	@Test
 	public void testOrdinaryCustomer() {
 		Customer customer = impl.makeCustomer("马丁", "6236609999", 9860);
@@ -34,17 +39,25 @@ public class CustomerTest {
 	}
 	
 	@Test
-	public void testEarnedPoints(){
-		Customer customer = impl.makeCustomer("马丁", "6236609999", 9860);
-		customer.earnedPoints(141);
-		assertEquals(10001, customer.getPoints());
+	public void testCustomerOrdinaryEarnedPoints(){
+		customerOrdinary.earnedPoints(141);
+		assertEquals(10001, customerOrdinary.getPoints());
 	}
 
 	@Test
-	public void testUpgrade(){
-		Customer customer = impl.makeCustomer("马丁", "6236609999", 9860);
-		customer.earnedPoints(141);
-		assertEquals(true, customer.getShouldUpgradeStatus());
+	public void testCustomerOrdinaryUpgradeStatus(){
+		customerOrdinary.earnedPoints(141);
+		assertEquals(true, customerOrdinary.getShouldUpgradeStatus());
 	}
-
+	
+	@Test
+	public void testCustomerOrdinaryUpgrade(){
+		customerOrdinary.earnedPoints(141);
+		assertEquals(true, customerOrdinary.getShouldUpgradeStatus());
+		Customer customerUpgrade = impl.upgradeCustomer(customerOrdinary);
+		assertEquals("金卡", customerUpgrade.getGrade());
+	}
+	
+	
+	
 }

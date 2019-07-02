@@ -12,4 +12,12 @@ public class PlatinumCustomer extends Customer implements CustomerRating{
 		// TODO Auto-generated method stub
 		points += amountMoney*1.8;
 	}
+
+	@Override
+	public void makeSureCustomerShouldUpgrade() {
+		// TODO Auto-generated method stub
+		if(points >= 100000){
+			shouldUpgrade = true;
+		}
+	}
 }

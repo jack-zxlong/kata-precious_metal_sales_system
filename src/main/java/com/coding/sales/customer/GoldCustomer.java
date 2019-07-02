@@ -13,4 +13,12 @@ public class GoldCustomer extends Customer implements CustomerRating{
 		points += amountMoney*1.5;
 	}
 
+	@Override
+	public void makeSureCustomerShouldUpgrade() {
+		// TODO Auto-generated method stub
+		if(points >= 50000){
+			shouldUpgrade = true;
+		}
+	}
+
 }

@@ -12,4 +12,12 @@ public class OrdinaryCustomer extends Customer implements CustomerRating{
 		// TODO Auto-generated method stub
 		points += amountMoney;
 	}
+
+	@Override
+	public void makeSureCustomerShouldUpgrade() {
+		// TODO Auto-generated method stub
+		if(points >= 10000){
+			shouldUpgrade = true;
+		}
+	}
 }

@@ -12,4 +12,10 @@ public class DiamondCustomer extends Customer implements CustomerRating{
 		// TODO Auto-generated method stub
 		points += amountMoney*2;
 	}
+
+	@Override
+	public void makeSureCustomerShouldUpgrade() {
+		// TODO Auto-generated method stub
+		shouldUpgrade = false;
+	}
 }

@@ -32,6 +32,9 @@ public class MetalValuationFactoryImpl implements MetalValuationFactory {
 	
 	public boolean isPreferentials(MetalInfo mi) {
 		
+		if(mi.getPreferentials()==null) {
+			return false;
+		}
 		if(mi.getPreferentials().size()>0) {
 			return true;
 		}
@@ -39,6 +42,9 @@ public class MetalValuationFactoryImpl implements MetalValuationFactory {
 	}
 
 	public boolean isDiscount(MetalInfo mi) {
+		if(mi.getDiscountRates()==null) {
+			return false;
+		}
 		if(mi.getDiscountRates().length>0) {
 			return true;
 		}

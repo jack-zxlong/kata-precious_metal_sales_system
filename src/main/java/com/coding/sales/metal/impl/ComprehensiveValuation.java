@@ -47,13 +47,13 @@ public class ComprehensiveValuation  extends MetalValuation{
 		for (int i = 0; i < preferentials.size(); i++) {
 
 			PreferentialActivities ps = preferentials.get(i);
-			if (ps.getPreferentialMode().equals(PreferentialModeEnum.TOTALAMOUNTMODE)) {
+			if (ps.getPreferentialMode().equals(PreferentialModeEnum.TOTALAMOUNTMODE.getValue())) {
 
 				if (allAmount.compareTo(ps.getLimitAmount()) >= 0) {
 					costs[i] = allAmount.subtract(ps.getPreferentialAmount());
 				}
 			}
-			if (ps.getPreferentialMode().equals(PreferentialModeEnum.TOTALUNITMODE)) {
+			if (ps.getPreferentialMode().equals(PreferentialModeEnum.TOTALUNITMODE.getValue())) {
 
 				if (counts.compareTo(ps.getLimitAmount()) >= 0) {
 					costs[i] = allAmount.subtract(unitPrice.multiply(ps.getPreferentialAmount()));

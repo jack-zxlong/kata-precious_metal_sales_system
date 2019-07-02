@@ -21,8 +21,9 @@ public class WithoutPrivilegesorDiscount  extends MetalValuation{
 	@Override
 	public BigDecimal makeMetalPrice(MetalInfo metalinfo,OrderItemCommand orderCommand) {
 		// TODO Auto-generated method stub
-		
-		return null;
+		BigDecimal unitPrice = metalinfo.getProductPrice();
+		BigDecimal counts = orderCommand.getAmount();
+		return unitPrice.multiply(counts);
 		
 	}
 }

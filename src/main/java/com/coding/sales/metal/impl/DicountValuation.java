@@ -9,15 +9,12 @@ import com.coding.sales.metal.inter.MetalValuation;
 
 public class DicountValuation extends MetalValuation {
 
-	private MetalInfo mi;
+	private MetalInfo metalinfo;
 
-	public DicountValuation(MetalInfo mi) {
+	
+	public DicountValuation(MetalInfo metalinfo) {
 		super();
-		this.mi = mi;
-	}
-
-	public MetalInfo getMi() {
-		return mi;
+		this.metalinfo = metalinfo;
 	}
 
 	@Override
@@ -25,7 +22,7 @@ public class DicountValuation extends MetalValuation {
 		// TODO Auto-generated method stub
 		
 		BigDecimal amount = orderCommand.getAmount();
-		BigDecimal price = BigDecimal.valueOf(metalinfo.getProductPrice());
+		BigDecimal price = metalinfo.getProductPrice();
 		BigDecimal minDiscount = BigDecimal.valueOf(this.getMinDiscount(metalinfo));
 		BigDecimal costAmount = price.multiply(amount).multiply(minDiscount)  ;
 	 	return costAmount;

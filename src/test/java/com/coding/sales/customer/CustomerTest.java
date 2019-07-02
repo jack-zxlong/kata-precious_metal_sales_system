@@ -65,7 +65,7 @@ public class CustomerTest {
 		BigDecimal a = new BigDecimal(10);
 		customerGold.earnedPoints(a);
 		//assertEquals(new BigDecimal(48875), customerGold.getPoints());
-		assertEquals(0, new BigDecimal(48875).compareTo(customerGold.getPoints()));
+		assertEquals(0, new BigDecimal(48875.0).compareTo(customerGold.getPoints()));
 	}
 	
 	@Test
@@ -74,7 +74,7 @@ public class CustomerTest {
 		BigDecimal a = new BigDecimal(10);
 		customerPlatinumTemp.earnedPoints(a);
 //		assertEquals(new BigDecimal(98878), customerPlatinum.getPoints());
-		assertEquals(0, new BigDecimal(98878.000000).compareTo(customerPlatinumTemp.getPoints()));
+		assertEquals(0, new BigDecimal(98878.0).compareTo(customerPlatinumTemp.getPoints()));
 	}
 	
 	@Test
@@ -82,7 +82,7 @@ public class CustomerTest {
 		Customer customerPlatinumTemp = impl.makeCustomer("李想", "8230009999", new BigDecimal(98860));
 		BigDecimal a1000 = new BigDecimal(1000);
 		customerPlatinumTemp.earnedPoints(a1000);
-		assertEquals(0, new BigDecimal(100660).compareTo(customerPlatinumTemp.getPoints()));
+		assertEquals(0, new BigDecimal(100660.0).compareTo(customerPlatinumTemp.getPoints()));
 	}
 	
 }

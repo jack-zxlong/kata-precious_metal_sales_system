@@ -48,6 +48,15 @@ public class CustomerBuyOrderCommand {
 		return null;
 	}
 	
+	private void replaseCustomer(Customer customer){
+		for(int i=0; i<customerList.size(); i++){
+			if(customerList.get(i).getMemberId().equals(customer.getMemberId())){
+				customerList.remove(i);
+				customerList.add(customer);
+			}
+		}
+	}
+	
 	public void initMetalInfo(){
 		MetalInfo tempMetalInfo001001 = new MetalInfo(
 				"世园会五十国钱币册", "001001", "册", new BigDecimal(998.00), null, null);
@@ -72,13 +81,13 @@ public class CustomerBuyOrderCommand {
 	
 	public void buyMetal(){
 		OrderItemCommand orderItem = orderCommand.getItems().get(0);
+	    Customer customer = findCustomer(orderCommand.getMemberId());
 
 	    MetalValuation metalValuation = metalImpl.makeMetalValuation(metalInfoList.get(0));
 	    BigDecimal amount = metalValuation.makeMetalPrice(metalInfoList.get(0), orderItem);
-	    Customer customer = findCustomer(orderCommand.getMemberId());
 	    customer.earnedPoints(amount);
 	    if(customer.getShouldUpgradeStatus()){
-	    	impl.upgradeCustomer(customer);
+	    	replaseCustomer(impl.upgradeCustomer(customer));
 	    }
 		
 	}
